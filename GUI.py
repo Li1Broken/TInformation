@@ -133,7 +133,7 @@ def f_1():
 def f_2():
     try:
         #выводим полученную декодированную строку отдельной ф-цией
-        entry5.insert(END, fi1e)
+        entry4.insert(END, fi1e)
     except:
         messagebox.showerror('error', 'Something went wrong!')
 
@@ -141,16 +141,16 @@ def f_2():
 
 label1=Label(root, text="Текст (информационное слово):", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label1.pack(side=TOP)
-entry1 = Entry(root, font= 'Tahoma 14', width = 50, fg='#7FFFD4', borderwidth=10, bg= '#5F9EA0')
+entry1 = Entry(root, font= 'Tahoma 14', fg='#7FFFD4', width = 50, borderwidth=10, bg= '#5F9EA0')
 entry1.pack(side=TOP)
 label2=Label(root, text="Kоличество сумматоров:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label2.pack(side=TOP)
-entry2 = Entry(root, width = 70, borderwidth=10, bg= '#5F9EA0')
+entry2 = Entry(root, font= 'Tahoma 14', fg='#7FFFD4', width = 70, borderwidth=10, bg= '#5F9EA0')
 entry2.pack(side=TOP)
 #hedjfdj
 label3=Label(root, text="Позиции сумматоров:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label3.pack(side=TOP)
-entry3 = Entry(root, width = 70, borderwidth=10, bg= '#5F9EA0')
+entry3 = Entry(root, font= 'Tahoma 14', fg='#7FFFD4', width = 70, borderwidth=10, bg= '#5F9EA0')
 entry3.pack(side=TOP)
 label4=Label(root, text="Результат кодирования теста:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label4.pack(side=TOP)
@@ -158,13 +158,15 @@ text1 = Text(root, width = 50, height= 15, bg= '#5F9EA0')
 text1.pack(side=TOP)
 label5=Label(root, text="Результат декодирования:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label5.pack(side=TOP)
-entry5 = Entry(root, font= 'Tahoma 14', width = 50, fg='#7FFFD4', borderwidth=10, bg= '#5F9EA0')
-entry5.pack(side=TOP)
+entry4 = Entry(root, font= 'Tahoma 14', width = 50, fg='#7FFFD4', borderwidth=10, bg= '#5F9EA0')
+entry4.pack(side=TOP)
 label6=Label(root, text="", fg="#7FFFD4", width = 50, bg="#2F4F4F")
 label6.pack(side=TOP)
 
 bttn1 = Button(root, text="Кодировать", font= 'Tahoma 14', bg='#008080', activebackground='#7FFFD4', command = f_1)
 bttn1.pack(side=TOP)
+label7=Label(root, text="", fg="#7FFFD4", width = 50, bg="#2F4F4F")
+label7.pack(side=TOP)
 bttn2 = Button(root, text="Декодировать", font= 'Tahoma 14', bg='#008080', activebackground='#7FFFD4', command = f_2)
 bttn2.pack(side=TOP)
 
