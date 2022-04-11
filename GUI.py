@@ -77,10 +77,10 @@ def f_1():
                     t = list(m[j])
                     g.append(t)
                 if count != summators:
-                    messagebox.showerror('error', 'Something went wrong!')
+                    messagebox.showerror('Ошибка', 'Похоже, что ты ввёл что-то не то. Вернись в начало и переделай ВСЁ!')
                     return
             else:
-                messagebox.showerror('error', 'Something went wrong!')
+                messagebox.showerror('error', 'Похоже, что ты ввёл что-то не то. Вернись в начало и переделай ВСЁ!')
                 return
             #приводим значения к виду для перемножения
             for k, m in enumerate(g):
