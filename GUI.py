@@ -1,6 +1,10 @@
+from cgitb import text
 from msilib.schema import Font
 from tkinter import *
 from tkinter import messagebox
+from tkinter import font
+import tkinter
+from tkinter.tix import TEXT
 from turtle import left
 from functions import *
 from prototipe import *
@@ -22,7 +26,7 @@ def testing_expression_summators(expression):
 #проверка позиций
 #dasdasdas
 def testing_expression_positions(expression):
-    symbols = "!@#$%^&*()+=/><.,'№;:?_4567890"
+    symbols = "!@#$%^&*()+=/><.,'№;:?_~0"
     regexp = r"([a-zA-Z])"
     match = re.search(regexp, expression)
     if (match is None) and (symbols not in expression):
@@ -32,8 +36,8 @@ def testing_expression_positions(expression):
 
 root = Tk()
 root.title("Convolutional code")
-root.geometry('1000x1000')
-root.configure(bg="#00FF00")
+root.geometry('1000x700')
+root.configure(bg="#2F4F4F")
 
 def f_1():
     global max
@@ -117,7 +121,7 @@ def f_1():
                     min += 1
             txt_1 = "".join(map(str, code_word))
             #преобразуем полученный элемент в строку и выводим
-            entry4.insert(END, txt_1)
+            text1.insert(END, txt_1)
             #с помощью ф-ции декодируем полученную строку
             file = perform_viterbi_decoding(txt_l)
 
@@ -134,33 +138,34 @@ def f_2():
         messagebox.showerror('error', 'Something went wrong!')
 
 #виджеты графического интерфейса
-label1=Label(root, text="Слово:", fg="#000000", width = 15, bg="#00FF00", font=20)
+
+label1=Label(root, text="Текст (информационное слово):", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label1.pack(side=TOP)
-entry1 = Entry(root, width = 70)
+entry1 = Entry(root, font= 'Tahoma 14', width = 50, fg='#7FFFD4', borderwidth=10, bg= '#5F9EA0')
 entry1.pack(side=TOP)
-label2=Label(root, text="Kол-во сумматоров:", fg="#000000", width = 15, bg="#00FF00")
+label2=Label(root, text="Kоличество сумматоров:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label2.pack(side=TOP)
-entry2 = Entry(root, width = 70)
+entry2 = Entry(root, width = 70, borderwidth=10, bg= '#5F9EA0')
 entry2.pack(side=TOP)
 #hedjfdj
-label3=Label(root, text="Позиции сумматоров:", fg="#000000", width = 17, bg="#00FF00")
+label3=Label(root, text="Позиции сумматоров:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label3.pack(side=TOP)
-entry3 = Entry(root, width = 70)
+entry3 = Entry(root, width = 70, borderwidth=10, bg= '#5F9EA0')
 entry3.pack(side=TOP)
-label4=Label(root, text="Закодированное слово:", fg="#000000", width = 25, bg="#00FF00")
+label4=Label(root, text="Результат кодирования теста:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label4.pack(side=TOP)
-entry4 = Entry(root, width = 70)
-entry4.pack(side=TOP)
-label5=Label(root, text="Декодированное слово:", fg="#000000", width = 25, bg="#00FF00")
+text1 = Text(root, width = 50, height= 15, bg= '#5F9EA0')
+text1.pack(side=TOP)
+label5=Label(root, text="Результат декодирования:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label5.pack(side=TOP)
-entry5 = Entry(root, width = 70)
+entry5 = Entry(root, font= 'Tahoma 14', width = 50, fg='#7FFFD4', borderwidth=10, bg= '#5F9EA0')
 entry5.pack(side=TOP)
-label6=Label(root, text="", fg="#000000", width = 50, bg="#00FF00")
+label6=Label(root, text="", fg="#7FFFD4", width = 50, bg="#2F4F4F")
 label6.pack(side=TOP)
 
-bttn1 = Button(root, text="code", width = 15, command = f_1)
-bttn1.pack(side=LEFT)
-bttn2 = Button(root, text="decode", width = 15, command = f_2)
-bttn2.pack(side=RIGHT)
+bttn1 = Button(root, text="Кодировать", font= 'Tahoma 14', bg='#008080', activebackground='#7FFFD4', command = f_1)
+bttn1.pack(side=TOP)
+bttn2 = Button(root, text="Декодировать", font= 'Tahoma 14', bg='#008080', activebackground='#7FFFD4', command = f_2)
+bttn2.pack(side=TOP)
 
 root.mainloop()
