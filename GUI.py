@@ -11,6 +11,7 @@ def text_to_bits(txt, encoding='utf-8', errors='surrogatepass'):
     bits = bin(int.from_bytes(txt.encode(encoding, errors), 'big'))[2:]
     return bits.zfill(8 * ((len(bits) + 7) // 8))
 #проверка кол-ва сумматоров
+#комментарий
 def testing_expression_summators(expression):
     symbols = "!@#$%^&*()_+=/><.,'№;:?"
     regexp = r"([a-zA-Z])"
