@@ -16,7 +16,7 @@ def text_to_bits(txt, encoding='utf-8', errors='surrogatepass'):
     return bits.zfill(8 * ((len(bits) + 7) // 8))
 #проверка кол-ва сумматоров
 def testing_expression_summators(expression):
-    symbols = "!@#$%^&*()_+=/><.,'№;:?"
+    symbols = "!@#$%^&*()_+=/><.,~'№;:?"
     regexp = r"([a-zA-Z])"
     match = re.search(regexp, expression)
     if (match is None) and (symbols not in expression):
