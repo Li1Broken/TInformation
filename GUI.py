@@ -142,6 +142,7 @@ label2=Label(root, text="Kол-во сумматоров:", fg="#000000", width 
 label2.pack(side=TOP)
 entry2 = Entry(root, width = 70)
 entry2.pack(side=TOP)
+#hedjfdj
 label3=Label(root, text="Позиции сумматоров:", fg="#000000", width = 17, bg="#00FF00")
 label3.pack(side=TOP)
 entry3 = Entry(root, width = 70)
