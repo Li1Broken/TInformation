@@ -20,6 +20,7 @@ def testing_expression_summators(expression):
     else:
         return False
 #проверка позиций
+#dasdasdas
 def testing_expression_positions(expression):
     symbols = "!@#$%^&*()+=/><.,'№;:?_4567890"
     regexp = r"([a-zA-Z])"
