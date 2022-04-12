@@ -14,7 +14,7 @@ import re
 def text_to_bits(txt, encoding='utf-8', errors='surrogatepass'):
     bits = bin(int.from_bytes(txt.encode(encoding, errors), 'big'))[2:]
     return bits.zfill(8 * ((len(bits) + 7) // 8))
-#проверка кол-ва сумматоров
+#проверка колличества сумматоров и исключение нежелательных символов
 def testing_expression_summators(expression):
     symbols = "!@#$%^&*()_+=/><.,~'№;:?"
     regexp = r"([a-zA-Z])"
@@ -23,17 +23,20 @@ def testing_expression_summators(expression):
         return True
     else:
         return False
-#проверка позиций
-#dasdasdas
+#проверка позиций сумматоров
 def testing_expression_positions(expression):
-    symbols = "!@#$%^&*()+=/><.,'№;:?_~0"
+    symbols = "!@#$%^&*()+=/><.,'№;:?_~"
     regexp = r"([a-zA-Z])"
     match = re.search(regexp, expression)
-    if (match is None) and (symbols not in expression):
+    regexp1 = r"([4-9])"
+    match1 = re.search(regexp1, expression)
+    regexp2 = r"([0])"
+    match2 = re.search(regexp2, expression)
+    if (match is None) and (symbols not in expression) and (match1 is None) and (match1 is None):
         return True
     else:
         return False
-
+#Создание главного окна интерфейса
 root = Tk()
 root.title("Convolutional code")
 root.geometry('1000x700')
@@ -42,7 +45,7 @@ root.configure(bg="#2F4F4F")
 def f_1():
     global max
     global fi1e
-    #проверка на пустые окошки
+    #проверка на наличие незаполненных окон
     if (entry1 != "") or (entry2 != "") or (entry3 != ""):
         fi1e = entry1.get()
         txt_bits = text_to_bits(fi1e)
@@ -147,14 +150,13 @@ label2=Label(root, text="Kоличество сумматоров:", fg="#7FFFD4
 label2.pack(side=TOP)
 entry2 = Entry(root, font= 'Tahoma 14', fg='#7FFFD4', width = 70, borderwidth=10, bg= '#5F9EA0')
 entry2.pack(side=TOP)
-#hedjfdj
 label3=Label(root, text="Позиции сумматоров:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label3.pack(side=TOP)
 entry3 = Entry(root, font= 'Tahoma 14', fg='#7FFFD4', width = 70, borderwidth=10, bg= '#5F9EA0')
 entry3.pack(side=TOP)
 label4=Label(root, text="Результат кодирования теста:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label4.pack(side=TOP)
-text1 = Text(root, width = 50, height= 15, bg= '#5F9EA0')
+text1 = Text(root, font= 'Tahoma 14', fg='#7FFFD4', width = 50, height= 15, bg= '#5F9EA0')
 text1.pack(side=TOP)
 label5=Label(root, text="Результат декодирования:", fg="#7FFFD4", width = 50, bg="#2F4F4F", font= 'Tahoma 14')
 label5.pack(side=TOP)
